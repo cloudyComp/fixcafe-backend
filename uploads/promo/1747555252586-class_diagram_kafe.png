@@ -1,0 +1,53 @@
+digraph "Class Diagram" {
+	User [label="User
+----------------------
++ id: int
++ nama: string
++ email: string
++ password: string
+----------------------
++ login()
++ logout()
+"]
+	Pelanggan [label="Pelanggan
+----------------------
++ no_hp: string
+----------------------
++ melihatMenu()
++ melihatPromo()
+"]
+	Admin [label="Admin
+----------------------
+----------------------
++ kelolaMenu()
++ kelolaPromo()
+"]
+	Menu [label="Menu
+----------------------
++ id_menu: int
++ nama: string
++ deskripsi: string
++ harga: float
++ gambar: string
++ kategori: string
+----------------------
++ updateHarga()
+"]
+	Promo [label="Promo
+----------------------
++ id_promo: int
++ judul: string
++ deskripsi: string
++ periode_mulai: date
++ periode_akhir: date
++ gambar: string
+----------------------
++ tampilkanPromo()
+"]
+	User -> Pelanggan [arrowhead=empty]
+	User -> Admin [arrowhead=empty]
+	Admin -> Menu [label=mengelola]
+	Admin -> Promo [label=mengelola]
+	Pelanggan -> Menu [label=melihat]
+	Pelanggan -> Promo [label=melihat]
+}
